@@ -10,23 +10,26 @@ CAPEv2 沿襲自 [Cuckoo](https://github.com/cuckoosandbox)，Cuckoo的原始版
 在開始前，你需要準備以下東西
 * Linux Ubuntu 22 iso (Host)
 * Windows 7 or 10 iso (Guest)
-* VMware (或其他VMM)
+* VMware (或其他VMM)  
 
-這是我的配置，CAPEv2的Guest主要是Windows，並且是在QEMU-KVM上運行。如果想要換成Linux或是實體機請自行參考官方文件 [CAPEv2 Document](https://capev2.readthedocs.io/en/latest/)。  
-如果你想要在原生Ubuntu OS上安裝就不用 VMM，但要注意必須是**Ubuntu 22**以上的版本，CAPEv2不支援22以下的版本  
-如果是Windows透過VMM安裝，請確保**Windows是企業或是專業版**，且VMM支援巢狀虛擬化功能。  
+這是我的配置，CAPEv2的Guest主要是Windows，並且是在QEMU-KVM上運行。
+如果想要換成Linux或是實體機請自行參考 [官方文件](https://capev2.readthedocs.io/en/latest/)。  
+如果你想要在原生Ubuntu OS上安裝就不用 VMM，但要注意必須是**Ubuntu 22**以上的版本，CAPEv2不支援Ubuntu 22以下的版本  
+如果是Windows透過VMM安裝，**請確保Windows是企業或是專業版**，且VMM支援巢狀虛擬化功能。  
 
 ## 1. 架設與設定Host環境 - Ubuntu 22.0.4 
-### 1.1 透過官方腳本安裝QEMU-KVM
-### 1.2 透過官方腳本安裝CAPEv2本體
-### 1.3 安裝額外套件
+### 1.1 Ubuntu安裝設定
+### 1.2 透過官方腳本安裝QEMU-KVM
+### 1.3 透過官方腳本安裝CAPEv2本體
+### 1.4 安裝額外套件
 
 ## 2. 架設與設定Guest環境 - Windows 10
-### 2.1 安裝Python3 32bit
-### 2.2 關閉Windows Defender與防火牆
-### 2.3 設定GPE
-### 2.4 關閉其他系統雜訊
-### 2.5 設置agent.py
+### 2.1 Windows安裝設定
+### 2.2 安裝Python3 32bit
+### 2.3 關閉Windows Defender與防火牆
+### 2.4 設定GPE
+### 2.5 關閉其他系統雜訊
+### 2.6 設置agent.py
 
 ## 3. 設定虛擬網路介面與CAPEv2設定檔
 ### 3.1 設定虛擬網路介面
