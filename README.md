@@ -65,7 +65,7 @@ CAPEv2 沿襲自 [Cuckoo](https://github.com/cuckoosandbox)，Cuckoo的原始版
   chmod +x ./kvm-qemu.sh  
   sudo ./kvm-qemu.sh all cape | tee kvm-qemu.log  
   ```
-  整體安裝需約15分鐘，完成後重啟cape虛擬機。
+  整體安裝需約15分鐘，完成後重啟cape虛擬機。  
   接著再安裝QEMU-KVM的GUI介面：QEMU-KVM-virt-manager　　
   ```sh
   sudo ./kvm-qemu.sh virtmanager cape | tee kvm-qemu-virt-manager.log
@@ -112,7 +112,31 @@ CAPEv2 沿襲自 [Cuckoo](https://github.com/cuckoosandbox)，Cuckoo的原始版
 
 ## 2. 架設與設定Guest環境
 - ### 2.1 Windows安裝設定
+   ```sh
+  virt-manager
+  ```
+  開啟QEMU-KVM的GUI介面，點選「Create a new virtual machine」  
+ ![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/8b65e9a3-ec05-4341-8a32-f019e9a79623)
+
+在選擇ISO檔時，Browse -> Browse Local -> 選擇Win10 映像檔  
+![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/49d5bed7-9226-423a-80a2-478e6a0c46da)
+
+Memory/Disk/CPU大小與數量可任意，依據你要分析的樣本需求而定。  
+但要注意使用者名稱的設定，使用者名稱會與之後CAPEv2的設定檔有關，我這邊把Guest的名稱叫做cape1  
+![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/59de2b3e-12fc-461b-98cd-791500f60aad)
+
+因為Guest機器是用來運行病毒的，設定帳戶時請注意**不要使用自己的Microsoft帳號進行登入**，並且將其他隱私設定全都關閉  
+![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/d085f1e8-56da-41ec-99ba-7f89d58cc833)
+![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/9234cbbe-05ff-4ab7-943d-e0c66ca3f2b8)
+
 - ### 2.2 安裝Python3 32bit
+  CAPEv2的agent.py需要透過**Python3 32bit**執行（注意是32bits），並將Python加入到PATH  
+  ![image](https://github.com/chikenGhost/CAPEv2-Build/assets/83065453/df5e36cb-fa3b-4d13-9859-98b0d135f53e)  
+  安裝完成後，重啟Guest，並且安裝截圖用的套件Pillow  
+  ```bash
+  pip install Pillow == 9.5.0
+  ```
+  
 - ### 2.3 關閉Windows Defender與防火牆
 - ### 2.4 設定GPE
 - ### 2.5 關閉其他系統雜訊
